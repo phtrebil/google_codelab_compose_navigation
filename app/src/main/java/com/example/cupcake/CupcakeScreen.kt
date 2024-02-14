@@ -112,6 +112,16 @@ fun CupcakeApp(
                 )
             }
 
+            composable(route = CupcakeRoute.Pickup.name){
+                SelectOptionScreen(
+                    subtotal = uiState.price,
+                    options = uiState.pickupOptions,
+                    onSelectionChanged = {viewModel.setDate(it)},
+                    modifier = Modifier.fillMaxHeight()
+                )
+
+            }
+
         }
     }
 }
