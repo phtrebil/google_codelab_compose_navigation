@@ -100,6 +100,7 @@ fun CupcakeApp(
                     onNextButtonClicked = {
                         viewModel.setQuantity(it)
                         navController.navigate(CupcakeRoute.Flavor.name)
+
                                           },
                     modifier = Modifier
                         .fillMaxSize()
@@ -111,6 +112,7 @@ fun CupcakeApp(
                 val context = LocalContext.current
                 SelectOptionScreen(
                     subtotal = uiState.price,
+                    onNextButtonClicked = {navController.navigate(CupcakeRoute.Pickup.name)},
                     options = DataSource.flavors.map { id -> context.resources.getString(id) },
                     onSelectionChanged = { viewModel.setFlavor(it) },
                     modifier = Modifier.fillMaxHeight()
