@@ -113,6 +113,7 @@ fun CupcakeApp(
                 SelectOptionScreen(
                     subtotal = uiState.price,
                     onNextButtonClicked = {navController.navigate(CupcakeRoute.Pickup.name)},
+                    onCancelButtonClicked = {},
                     options = DataSource.flavors.map { id -> context.resources.getString(id) },
                     onSelectionChanged = { viewModel.setFlavor(it) },
                     modifier = Modifier.fillMaxHeight()
@@ -131,6 +132,10 @@ fun CupcakeApp(
             composable(route = CupcakeRoute.Summary.name) {
                 OrderSummaryScreen(
                     orderUiState = uiState,
+                    onCancelButtonClicked = {},
+                    onSendButtonClicked = {subject: String, summary: String ->
+
+                    },
                     modifier = Modifier.fillMaxHeight()
                 )
             }
